@@ -7,7 +7,7 @@ h1 {
    padding-left: 45px;
 }
 table, th, td {
-  text-align: center; 
+  text-align: center;
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -24,39 +24,59 @@ th, td {
 </style>
 </head>
 <body>
-<div class="content">
-<h1>⛳ Leaderboard ⛳</h1>
-<table>
-  <thead>
-    <th colspan=6>April 2023 - TPC Sawgrass - 18 hole Par 72</th>
-  </thead>
-  <tr>
-    <th>hole</th>
-    <th>par</th>
-    <th>🇺🇸</th>
-    <th>🇨🇦</th>
-    <th>🏴󠁧󠁢󠁥󠁮󠁧󠁿</th>
-    <th>🇮🇪</th>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>5</td>
-    <td>(-1)</td>
-    <td>(-2)</td>
-    <td>(-1)</td>
-    <td>(-2)</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>4</td>
-    <td>(-)</td>
-    <td>(-)</td>
-    <td>(-1)</td>
-    <td>(-)</td>
-  </tr>
-  <p>Current Score: 🇺🇸=71 🇨🇦=70 🏴󠁧󠁢󠁥󠁮󠁧󠁿=70 🇮🇪=70</p>
-</table>
+<div class=content>
+<h1> ⛳  Leaderboard ⛳ </h1>
+  <p id="currentScore"></p>
+  <table id="myTable"></table>
 </div>
+  <script>
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const table = document.getElementById('myTable');
+        const currentScore = document.getElementById('currentScore');
+        const { title, headers, rows } = data.table;
+        let totalScores = [0, 0, 0, 0]; // Initialize total score for each column to 0
+
+        // Add title row
+        const titleRow = document.createElement('tr');
+        const titleCell = document.createElement('th');
+        titleCell.colSpan = headers.length;
+        titleCell.innerText = title;
+        titleRow.appendChild(titleCell);
+        table.appendChild(titleRow);
+        // Add header row
+        const headerRow = document.createElement('tr');
+        headers.forEach(header => {
+          const headerCell = document.createElement('th');
+          headerCell.innerText = header;
+          headerRow.appendChild(headerCell);
+        });
+        table.appendChild(headerRow);
+
+        // Add data rows
+        rows.forEach(rowData => {
+          const row = document.createElement('tr');
+          rowData.cells.forEach((cellData, index) => {
+            const cell = document.createElement('td');
+            cell.innerText = cellData;
+            row.appendChild(cell);
+
+            // Update total score for each column
+            if (index >= 2 && index <= 5) {
+              totalScores[index - 2] += isNaN(cellData) ? 0 : Number(cellData);
+            }
+          });
+          table.appendChild(row);
+        });
+
+        // Display current score
+        const countries = ['🇺🇸', '🇨🇦', '🏴󠁧󠁢󠁥󠁮󠁧󠁿','🇮🇪'] 
+        const scoresWithCountries = totalScores.map((score, i) => `${countries[i]}=${score+72}`);
+        currentScore.innerText = "Current Score: " + scoresWithCountries.join(' ');
+      })
+    .catch(error => console.error(error));
+  </script>
 </body>
 </html>
 
