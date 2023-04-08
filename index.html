@@ -21,6 +21,17 @@ th, td {
   max-width: 500px;
   margin: auto;
 }
+/* Vertical spacing between tables */
+#tables-container > table:not(:last-child) {
+  margin-bottom: 40px;
+}
+/* Title that spans all columns */
+.table-title {
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+}
 </style>
 </head>
 <body>
@@ -29,61 +40,91 @@ th, td {
   <p id="currentScore"></p>
   <table id="myTable"></table>
 </div>
+  <div id="tables-container"></div>
   <script>
+    // Fetch JSON data from file
     fetch('data.json')
       .then(response => response.json())
       .then(data => {
-        const table = document.getElementById('myTable');
-        const currentScore = document.getElementById('currentScore');
-        const { title, headers, rows } = data.table;
-        let totalScores = [0, 0, 0, 0]; // Initialize total score for each column to 0
+        // Get container element
+        const tablesContainer = document.getElementById('tables-container');
 
-        const words = title.split(' ');
-        const index = words.indexOf('TPC-Sawgrass');
-        if (index > -1) {
-          words[index] = `<a href="https://en.wikipedia.org/wiki/TPC_at_Sawgrass" target="_blank">${words[index]}</a>`;
-        }
-        const modifiedTitle = words.join(' ');
+        // Loop through JSON data to create tables
+        for (const tableData of data.tables) {
+          // Create table element
+          const table = document.createElement('table');
 
-        // Add title row
-        const titleRow = document.createElement('tr');
-        const titleCell = document.createElement('th');
-        titleCell.colSpan = headers.length;
-        titleCell.innerHTML = modifiedTitle;
+          // Create table title row
+          const titleRow = document.createElement('tr');
+          table.appendChild(titleRow);
+          const titleCell = document.createElement('td');
+          titleCell.className = 'table-title';
+          const titleText = tableData.title;
+          const titleMatch = titleText.match(/'([^']+)'/);
+          if (titleMatch) {
+            const titleLink = document.createElement('a');
+            const titleLinkText = titleMatch[1];
+            titleLink.href = tableData.link[titleLinkText];
+            titleLink.textContent = titleLinkText;
+            titleCell.appendChild(titleLink);
+            const titleBefore = document.createTextNode(titleText.slice(0, titleMatch.index));
+            titleCell.insertBefore(titleBefore, titleLink);
+            const titleAfter = document.createTextNode(titleText.slice(titleMatch.index + titleLinkText.length + 2));
+            titleCell.appendChild(titleAfter);
+          } else {
+            titleCell.textContent = titleText;
+          }
+          titleRow.appendChild(titleCell);
+          titleCell.colSpan = tableData.headers.length;
+          table.appendChild(titleRow);
 
-        titleRow.appendChild(titleCell);
-        table.appendChild(titleRow);
-        // Add header row
-        const headerRow = document.createElement('tr');
-        headers.forEach(header => {
-          const headerCell = document.createElement('th');
-          headerCell.innerText = header;
-          headerRow.appendChild(headerCell);
-        });
-        table.appendChild(headerRow);
+          // Create header row
+          const headerRow = document.createElement('tr');
+          for (const header of tableData.headers) {
+            const headerCell = document.createElement('th');
+            headerCell.textContent = header;
+            headerRow.appendChild(headerCell);
+          }
+          table.appendChild(headerRow);
 
-        // Add data rows
-        rows.forEach(rowData => {
-          const row = document.createElement('tr');
-          rowData.cells.forEach((cellData, index) => {
-            const cell = document.createElement('td');
-            cell.innerText = cellData;
-            row.appendChild(cell);
-
-            // Update total score for each column
-            if (index >= 2 && index <= 5) {
-              totalScores[index - 2] += isNaN(cellData) ? 0 : Number(cellData);
+          // Create data rows
+          for (const row of tableData.rows) {
+            const dataRow = document.createElement('tr');
+            for (const cell of row) {
+              const dataCell = document.createElement('td');
+              dataCell.textContent = cell;
+              dataRow.appendChild(dataCell);
             }
-          });
-          table.appendChild(row);
-        });
+            table.appendChild(dataRow);
+          }
 
-        // Display current score
-        const countries = ['🇺🇸', '🇨🇦', '🏴󠁧󠁢󠁥󠁮󠁧󠁿','🇮🇪'] 
-        const scoresWithCountries = totalScores.map((score, i) => `${countries[i]}=${score+72}`);
-        currentScore.innerText = "Current Score: " + scoresWithCountries.join(' ');
+          // Append table to container
+          tablesContainer.appendChild(table);
+        // Calculate and display scores
+const countryScores = {};
+const countryFlags = [tableData.headers[2], tableData.headers[3], tableData.headers[4], tableData.headers[5]];
+for (const row of tableData.rows) {
+  for (let i = 2; i <= 5; i++) {
+    const country = tableData.headers[i];
+    const score = parseFloat(row[i]) || 0;
+    if (!isNaN(score)) {
+      countryScores[country] = (countryScores[country] || 0) + score;
+    }
+  }
+}
+         // Display scores as a string
+const scoreLine = document.createElement('p');
+scoreLine.className = 'score-line';
+let scoreString = 'Score: ';
+for (const countryFlag of countryFlags) {
+  const countryScore = countryScores[countryFlag] || 0;
+  scoreString += ` ${countryFlag}=${countryScore}`;
+}
+scoreLine.textContent = scoreString;
+tablesContainer.insertBefore(scoreLine, table); 
+        }
       })
-    .catch(error => console.error(error));
+      .catch(error => console.error('Error fetching JSON data:', error));
   </script>
 </body>
 </html>
