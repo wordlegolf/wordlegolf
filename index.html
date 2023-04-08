@@ -121,7 +121,7 @@ for (const countryFlag of countryFlags) {
   const countryScore = countryScores[countryFlag] || 0;
   scoreString += ` ${countryFlag}=${countryScore}`;
 }
-scoreLine.textContent = scoreString;
+scoreLine.textContent = scoreString + 72;
 tablesContainer.insertBefore(scoreLine, table); 
         }
       })
