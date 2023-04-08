@@ -62,19 +62,19 @@ th, td {
           titleCell.className = 'table-title';
           const titleText = tableData.title;
           const titleMatch = titleText.match(/'([^']+)'/);
-          if (titleMatch) {
-            const titleLink = document.createElement('a');
-            const titleLinkText = titleMatch[1];
-            titleLink.href = tableData.link[titleLinkText];
-            titleLink.textContent = titleLinkText;
-            titleCell.appendChild(titleLink);
-            const titleBefore = document.createTextNode(titleText.slice(0, titleMatch.index));
-            titleCell.insertBefore(titleBefore, titleLink);
-            const titleAfter = document.createTextNode(titleText.slice(titleMatch.index + titleLinkText.length + 2));
-            titleCell.appendChild(titleAfter);
-          } else {
+          //if (titleMatch) {
+          //  const titleLink = document.createElement('a');
+          //  const titleLinkText = titleMatch[1];
+          //  titleLink.href = tableData.link[titleLinkText];
+          //  titleLink.textContent = titleLinkText;
+          //  titleCell.appendChild(titleLink);
+         //   const titleBefore = document.createTextNode(titleText.slice(0, titleMatch.index));
+         //   titleCell.insertBefore(titleBefore, titleLink);
+         //   const titleAfter = document.createTextNode(titleText.slice(titleMatch.index + titleLinkText.length + 2));
+         //   titleCell.appendChild(titleAfter);
+         // } else {
             titleCell.textContent = titleText;
-          }
+         // }
           titleRow.appendChild(titleCell);
           titleCell.colSpan = tableData.headers.length;
           table.appendChild(titleRow);
