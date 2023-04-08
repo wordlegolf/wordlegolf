@@ -113,6 +113,11 @@ for (const row of tableData.rows) {
     }
   }
 }
+for (const key in countryScores) {
+  if (countryScores.hasOwnProperty(key)) {
+    countryScores[key] + 72;
+  }
+}           
 console.log(countryScores)
 // Display scores as a string
 const scoreLine = document.createElement('p');
