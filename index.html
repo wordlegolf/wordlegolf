@@ -109,7 +109,7 @@ for (const row of tableData.rows) {
     const country = tableData.headers[i];
     const score = parseFloat(row[i]) || 0;
     if (!isNaN(score)) {
-      countryScores[country] = (countryScores[country] || 0) + score;
+      countryScores[country] = (countryScores[country] || 0) + score +72;
     }
   }
 }
@@ -121,7 +121,7 @@ for (const countryFlag of countryFlags) {
   const countryScore = countryScores[countryFlag] || 0;
   scoreString += ` ${countryFlag}=${countryScore}`;
 }
-scoreLine.textContent = scoreString + 72;
+scoreLine.textContent = scoreString;
 tablesContainer.insertBefore(scoreLine, table); 
         }
       })
