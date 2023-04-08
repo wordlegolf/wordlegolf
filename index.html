@@ -113,18 +113,19 @@ for (const row of tableData.rows) {
     }
   }
 }
+updatedCountryScores = {}
 for (const key in countryScores) {
   if (countryScores.hasOwnProperty(key)) {
-    countryScores[key] + 72;
+    updatedCountryScores[key] + 72;
   }
 }           
-console.log(countryScores)
+console.log(updatedCountryScores)
 // Display scores as a string
 const scoreLine = document.createElement('p');
 scoreLine.className = 'score-line';
 let scoreString = 'Score: ';
 for (const countryFlag of countryFlags) {
-  const countryScore = countryScores[countryFlag] || 0;
+  const countryScore = updatedCountryScores[countryFlag] || 0;
   scoreString += ` ${countryFlag}=${countryScore}`;
 }
 scoreLine.textContent = scoreString;
