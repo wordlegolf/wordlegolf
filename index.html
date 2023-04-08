@@ -109,11 +109,12 @@ for (const row of tableData.rows) {
     const country = tableData.headers[i];
     const score = parseFloat(row[i]) || 0;
     if (!isNaN(score)) {
-      countryScores[country] = (countryScores[country] || 0) + score +72;
+      countryScores[country] = (countryScores[country] || 0) + score;
     }
   }
 }
-         // Display scores as a string
+console.log(countryScores)
+// Display scores as a string
 const scoreLine = document.createElement('p');
 scoreLine.className = 'score-line';
 let scoreString = 'Score: ';
