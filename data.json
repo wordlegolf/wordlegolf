@@ -1,5 +1,20 @@
 {
   "tables": [
+   {
+      "title": "🏌️ July 2023 - 'Pebble Beach' - 18 Hole Par 72",
+      "link": "https://www.pebblebeach.com/content/uploads/PebbleBeach-Scorecard.pdf",
+      "par": 72,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+      "rows": [
+      ]
+    },
     {
       "title": "🐲 June 2023 - 'The D20 Course' - 18 Rolls",
       "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ6tF2cXmQ2Q3tZX3ywp36PaH1emMxz-6bXQ&usqp=CAU",
