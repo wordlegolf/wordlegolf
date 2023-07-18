@@ -1,6 +1,21 @@
 {
   "tables": [
-   {
+     {
+      "title": "🏌️ August 2023 - 'Torrey Pines' - 18 Hole Par 72",
+      "link": "https://www.torreypines.com/wp-content/uploads/2020/11/TPN_11-24-20.pdf",
+      "par": 72,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+       ]
+    },
+    {
       "title": "🏌️ July 2023 - 'Pebble Beach' - 18 Hole Par 72",
       "link": "https://www.pebblebeach.com/golf/pebble-beach-golf-links/",
       "par": 72,
