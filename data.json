@@ -1,5 +1,21 @@
 {
   "tables": [
+      {
+      "title": "🏌️ September 2023 - 'Halfling Front 9' - 9 Hole Par (magical) 36",
+      "link": "https://wordlegolf.saigos.space/halfling",
+      "par": 36,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+         [1, 4, "-", "-", "-", "-"],
+       ]
+      },
      {
       "title": "🏌️ August 2023 - 'Torrey Pines' - 18 Hole Par 72",
       "link": "https://www.torreypines.com/wp-content/uploads/2020/11/TPN_11-24-20.pdf",
