@@ -117,7 +117,7 @@ th, td {
         rebasedCountryScores = {}
         for (const key in countryScores) {
           if (countryScores.hasOwnProperty(key)) {
-            rebasedCountryScores[key] = countryScores[key] + 72;
+            rebasedCountryScores[key] = countryScores[key] + tableData.par;
           }
         }           
          // Display scores as a string
