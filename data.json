@@ -1,9 +1,26 @@
 {
   "tables": [
+    
+      {
+      "title": "🏌️ September 2023 - 'Halfling Back 9' - magical par 36",
+      "link": "https://wordlegolf.saigos.space/halfling",
+      "par": 36,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+         [10, 4, "-", "-", "-1", "-"],
+       ],
+       },
       {
       "title": "🏌️ September 2023 - 'Halfling Front 9' - magical par 37",
       "link": "https://wordlegolf.saigos.space/halfling",
-      "par": 36,
+      "par": 37,
       "headers": [
         "Hole",
         "Par",
