@@ -1,5 +1,22 @@
 {
   "tables": [
+       {
+      "title": "🏌️ October 2023 - 'Standard Front 9' all holes par 4",
+      "link": "",
+      "par": 36,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+         [2, 4, "-", "+1", "-", "-"],
+         [1, 4, "-", "-", "-1","-"]
+       ]
+       },
       {
       "title": "🏌️ September 2023 - 'Halfling Back 9' - magical par 36",
       "link": "https://wordlegolf.saigos.space/halfling",
