@@ -1,6 +1,22 @@
 {
   "tables": [
      {
+      "title": "🏌️ January 2024 - 'Standard Front 9' all holes par 4",
+      "link": "",
+      "par": 36,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+         [1, 4, "-", "-", "+1", "-"]
+       ]
+     },
+     {
       "title": "🏌️ December 2023 - 'Standard Back 9' all holes par 4",
       "link": "",
       "par": 36,
