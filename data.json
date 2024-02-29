@@ -1,5 +1,21 @@
 {
   "tables": [
+     {
+      "title": "🏌️ March 2024 - 'Pebble Beach' - 18 Hole Par 72",
+      "link": "https://www.pebblebeach.com/golf/pebble-beach-golf-links/",
+      "par": 72,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+        [1, 4, "-", "-", "-1", "-"]
+      ]
+    },
        {
       "title": "🏌️ Febuary 2024 'Standard Back 9' all holes par 4",
       "link": "",
