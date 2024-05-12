@@ -1,7 +1,25 @@
 {
   "tables": [
     {
-      "title": "🏌️ May 2024 - 'Standard Back 9' all holes par 4",
+      "title": "🏌️ May 2024 - 'Standard  9' all holes par 4",
+      "link": "",
+      "par": 36,
+      "headers": [
+        "Hole",
+        "Par",
+        "🇺🇸",
+        "🇨🇦",
+        "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "🇮🇪"
+      ],
+       "rows": [
+         [12, 4, "-1", "+1", "-2", "-"],
+         [11, 4, "-1", "-1", "-1", "-1"],
+         [10, 4, "-", "-", "+1","+1"]
+       ]
+    },
+    {
+      "title": "🏌️ May 2024 - 'Standard Front 9' all holes par 4",
       "link": "",
       "par": 36,
       "headers": [
