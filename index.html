@@ -104,9 +104,9 @@ th, td {
         
         // Calculate and display scores
         const countryScores = {};
-        const countryFlags = [tableData.headers[2], tableData.headers[3], tableData.headers[4], tableData.headers[5]];
+        const countryFlags = [tableData.headers[2], tableData.headers[3], tableData.headers[4], tableData.headers[5],tableData.headers[6]];
         for (const row of tableData.rows) {
-          for (let i = 2; i <= 5; i++) {
+          for (let i = 2; i <= 6; i++) {
             const country = tableData.headers[i];
             const score = parseFloat(row[i]) || 0;
             if (!isNaN(score)) {
